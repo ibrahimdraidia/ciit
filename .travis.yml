@@ -6,7 +6,7 @@ language: c
 before_install:
     - docker build -t testtravis .
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-    - docker push ibrahimd/testtravis 
+    - docker push $DOCKER_USERNAME/testtravis 
 
 notifications:
     on_success: always
