@@ -1,0 +1,9 @@
+version: 2
+jobs:
+    build:
+        steps:
+            - checkout 
+            - run: make test
+            - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD 
+            - run: docker build -t $DOCKER_USERNAME/circleci
+            - run: docker push $DOCKER_USERNAME/circleci
