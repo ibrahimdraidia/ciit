@@ -4,7 +4,7 @@ services:
 language: c
 
 before_install:
-    - docker build -t testtravis .
+    - docker build -t $DOCKER_USERNAME/testtravis .
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - docker push $DOCKER_USERNAME/testtravis 
 
