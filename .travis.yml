@@ -3,10 +3,12 @@ services:
     - docker
 language: c
 
-before_install:
-    - docker build -t $DOCKER_USERNAME/testtravis .
-    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-    - docker push $DOCKER_USERNAME/testtravis 
+after_success:
+    - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker build -t $DOCKER_USERNAME/testtravis .
+      docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+      docker push $DOCKER_USERNAME/testtravis
+      fi
 
 notifications:
     on_success: always
