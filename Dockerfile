@@ -1,4 +1,4 @@
 FROM ubuntu
 
-RUN apt update && apt upgrade
+RUN apt update -y && apt upgrade -y
 
