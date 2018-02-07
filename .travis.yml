@@ -4,10 +4,9 @@ before_install:
     - cp .env-example .env
     - cp env_rake.example.yml  env_rake.yml
 
-build:
-    script:
-        - echo "testing ..."
-        - echo $hola
+script:
+    - echo "testing ..."
+    - echo $hola
 #install_gems:
 #    - gem install bundler
 #    - bundle config geminabox.dapp.bc-fg.com buyco:$GEMINABOX_PASSWORD 
