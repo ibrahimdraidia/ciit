@@ -1,20 +1,14 @@
-sudo: required
-services:
-    - docker
-language: c
+language: ruby
 
+before_install:
+    - cp .env-example .env
+    - cp env_rake.example.yml cp env_rake.yml
 
-notifications:
-    on_success: always
-    on_failure: always
-
-
-script: make test
-    
-after_success:
-    - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker build -t $DOCKER_USERNAME/travis . ;
-      docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
-      docker push $DOCKER_USERNAME/travis;
-      fi
-
+build:
+    script:
+        - echo "testing ..."
+        - echo $hola
+#install_gems:
+#    - gem install bundler
+#    - bundle config geminabox.dapp.bc-fg.com buyco:$GEMINABOX_PASSWORD 
+#    - bundle install 
