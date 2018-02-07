@@ -2,7 +2,7 @@ language: ruby
 
 before_install:
     - cp .env-example .env
-    - cp env_rake.example.yml cp env_rake.yml
+    - cp env_rake.example.yml  env_rake.yml
 
 build:
     script:
